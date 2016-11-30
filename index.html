@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Heat the room with your CPUs.</title>
+    <style>
+      body {
+        text-align: center;
+        padding: 100px;
+      }
+      button {
+        border: 0;
+        padding: 10px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Thanks to web workers, we can now maximize CPU utilization in JS very easily.<p>
+
+    <p>If everybody does this, we might stop freezing.</p>
+
+    <p><button id="start">Start heating! (this WILL freeze your browser though)</button></p>
+    <script>
+      function startTheHeat() {
+        for (var i = 0; i < 4; ++i) {
+          new Worker('radiator.js');
+        }
+      }
+      document.getElementById('start').addEventListener('click', startTheHeat);
+    </script>
+  </body>
+</html>
