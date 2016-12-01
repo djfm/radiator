@@ -22,7 +22,7 @@
     <p><button id="start">Start heating! (this WILL freeze your browser though)</button></p>
     <script>
       function startTheHeat() {
-        for (var i = 0; i < 4; ++i) {
+        for (var i = 0; i < navigator.hardwareConcurrency; ++i) {
           new Worker('radiator.js');
         }
       }
